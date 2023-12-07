@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "967163134181",
+    "project_id": "logingld-3ceb7",
+    "storage_bucket": "logingld-3ceb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967163134181:android:3f22df7b845cf0bb79940c",
+        "android_client_info": {
+          "package_name": "com.kambaii.gas_leak_detector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE-jpkUitFNquCL2YQ6In7F-azDJ71qYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
