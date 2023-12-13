@@ -4,6 +4,7 @@ import 'package:gas_leak_detector/controllers/login_controller.dart';
 import 'package:gas_leak_detector/core/local_data/utils/keys.dart';
 import 'package:gas_leak_detector/screens/sign_up_screen.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/values/colors.dart';
@@ -33,17 +34,13 @@ class Login extends StatelessWidget {
                       decoration: const BoxDecoration(
                           //color: AppColors.mainColor
                           ),
-                      child: const Column(
+                      child:  Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
+                        SizedBox(height: ScreenUtil().setHeight(240) //269
+                    ),
                         ],
                       ),
                     ),
@@ -58,14 +55,22 @@ class Login extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                             Text(
                               "Your Phone Number",
                               textAlign: TextAlign.left,
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
+                            SizedBox(height: ScreenUtil().setHeight(16) //40
+                    ),
                             Container(
+                           height: 60.h,
+                          width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -87,6 +92,9 @@ class Login extends StatelessWidget {
                                 decoration: InputDecoration(
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
+                                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(16),
+                      color: Color(0xff757171),
+                      fontWeight: FontWeight.normal,),
                                   filled: true,
                                  hintText: "Enter your phone number",
                                   border: OutlineInputBorder(
@@ -99,17 +107,24 @@ class Login extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            const Text(
+                                SizedBox(height: ScreenUtil().setHeight(25) //40
+                    ),
+                             Text(
                               "Your password",
                               textAlign: TextAlign.left,
+                              style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
+                                 SizedBox(height: ScreenUtil().setHeight(16) //40
+                    ),
                             Container(
+                              height: 60.h,
+                          width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -133,6 +148,9 @@ class Login extends StatelessWidget {
                                         prefixIcon:
                                             const Icon(Icons.vpn_key_rounded),
                                             hintText: "Enter your password",
+                                             hintStyle: TextStyle(fontSize: ScreenUtil().setSp(16),
+                      color: Color(0xff757171),
+                      fontWeight: FontWeight.normal,),
                                         suffixIcon: IconButton(
                                           onPressed: () {
                                             logincontroller.toggleObscureText();
@@ -151,87 +169,137 @@ class Login extends StatelessWidget {
                                             borderSide: BorderSide.none)),
                                   )),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
-                            
-                            Container(
-                              height: 50,
-                              width: double.infinity,
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                              ),
-                              decoration: const ShapeDecoration(
-                                shape: StadiumBorder(),
-                              ),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    shape: const StadiumBorder(),
-                                    primary: AppColors.mainColor),
-                                onPressed: () async {
-                                  if (AppKeys.loginKey.currentState!.validate()) {
-                                    AppKeys.loginKey.currentState!.save();
-                                    await logincontroller.login();
-                                  }
-                                },
-                                child:
-                                    logincontroller.isLoading ? const ColorfulCircularProgressIndicator(colors: [
-                                      Colors.blue, Colors.red, Colors.green, Colors.yellow
-                                    ]) :
-                                    Text(
-                                  "Sign In".tr,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ElevatedButton(
-                              onPressed: () async{
-
-                                
-                                    await logincontroller.signInWithGoogle();
-                                 
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary:
-                                    Colors.white, // Button background color
-                                onPrimary: Colors.black, // Text color
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                padding:
-                                    const EdgeInsets.all(12), // Button padding
-                              ),
-                              child: Row(
+                                   SizedBox(height: ScreenUtil().setHeight(20) //40
+                    ),
+                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset(
-                                    'images/google icon.png', // Path to your Google logo asset
-                                    height:
-                                        24, // Adjust the height according to your design
-                                    width:
-                                        24, // Adjust the width according to your design
+                                         SizedBox(width: ScreenUtil().setWidth(100) //40
+                    ),
+                                  // const Text(
+                                  //   "Already have an account?",
+                                  //   style: TextStyle(
+                                  //     color: Colors.black,
+                                  //   )
+                                  // ),
+                                 
+                                  TextButton(
+                                                             onPressed: () {
+                                Get.offAll(()=>const Login());
+                                                             },
+                                   child: Text(
+                                    " Forgot Password".tr,
+                                        style: GoogleFonts.inter(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(14),
+                      color: Color(0xff1366D9),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                                   ),
-                                  const SizedBox(
-                                      width:
-                                          16), // Adjust the spacing between icon and text
-                                  const Text(
-                                    'Continue with Google',
-                                    style: TextStyle(fontSize: 16),
                                   ),
                                 ],
+                           ),
+                                     SizedBox(height: ScreenUtil().setHeight(25) //40
+                    ),
+                            Center(
+                              child: Container(
+                                height: 44.h,
+                                width: 144.w,
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 30,
+                                ),
+                                decoration: const ShapeDecoration(
+                                  shape: StadiumBorder(),
+                                ),
+                                child: ElevatedButton(
+                                  
+                                  style: ElevatedButton.styleFrom(
+                                      // shape: const StadiumBorder(),
+                                       shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(5), // <-- Radius
+    ),
+                                      primary: AppColors.mainColor),
+                                  onPressed: () async {
+                                    if (AppKeys.loginKey.currentState!.validate()) {
+                                      AppKeys.loginKey.currentState!.save();
+                                      await logincontroller.login();
+                                    }
+                                  },
+                                  child:
+                                      logincontroller.isLoading ? const ColorfulCircularProgressIndicator(colors: [
+                                        Colors.blue, Colors.red, Colors.green, Colors.yellow
+                                      ]) :
+                                      Text(
+                                    "Sign In".tr,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
                               ),
                             ),
+                                       SizedBox(height: ScreenUtil().setHeight(27) //40
+                    ),
+                            Container(
+                              height: 60.h,
+                              width: 306.w,
+                              child: ElevatedButton(
+                                onPressed: () async{
+                              
+                                  
+                                      await logincontroller.signInWithGoogle();
+                                   
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary:
+                                      Colors.white, // Button background color
+                                  onPrimary: Colors.black, // Text color
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  padding:
+                                      const EdgeInsets.all(12), // Button padding
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'images/google icon.png', // Path to your Google logo asset
+                                      height:
+                                          24, // Adjust the height according to your design
+                                      width:
+                                          24, // Adjust the width according to your design
+                                    ),
+                                    const SizedBox(
+                                        width:
+                                            16), // Adjust the spacing between icon and text
+                                     Text(
+                                      'Continue with Google',
+                                                    style: GoogleFonts.inter(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(16),
+                      color: Color(0xff000000),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                                           SizedBox(height: ScreenUtil().setHeight(25) //40
+                    ),
                           Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text(
+                                   Text(
                                     "Don't have an account?",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    )
+                                    style: GoogleFonts.inter(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(14),
+                      color: Color(0xff000000),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                                   ),
                                  
                                   TextButton(
@@ -240,13 +308,19 @@ class Login extends StatelessWidget {
                                                              },
                                    child: Text(
                                     " Sign Up".tr,
+                                       style: GoogleFonts.inter(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(14),
+                      color: Color(0xff1366D9),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                                   ),
                                   ),
                                 ],
                            ),
-                            const SizedBox(
-                              height: 24,
-                            ),
+                                                                  SizedBox(height: ScreenUtil().setHeight(24) //40
+                                                                  )
                           ],
                         ),
                       ),

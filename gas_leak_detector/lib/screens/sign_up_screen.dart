@@ -5,6 +5,7 @@ import 'package:gas_leak_detector/core/local_data/utils/keys.dart';
 import 'package:gas_leak_detector/screens/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/values/colors.dart';
 import '../controllers/signup_controller.dart';
@@ -34,17 +35,13 @@ class SignUp extends StatelessWidget {
                       decoration: const BoxDecoration(
                           //color: AppColors.mainColor
                           ),
-                      child: const Column(
+                      child:  Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
+                           SizedBox(height: ScreenUtil().setHeight(208), //269
+                    ),
                         ],
                       ),
                     ),
@@ -59,14 +56,23 @@ class SignUp extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                             Text(
                               "Your Name",
                               textAlign: TextAlign.left,
+                                  
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
+                              SizedBox(height: ScreenUtil().setHeight(16), //269
+                    ),
                             Container(
+                              height: 60.h,
+                              width:306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -101,17 +107,26 @@ class SignUp extends StatelessWidget {
                               ),
                             ),
                            ///////// //name//////end//////////////////////////
-                            const SizedBox(
-                              height: 16,
-                            ),
-                             const Text(
+                              SizedBox(height: ScreenUtil().setHeight(16), //269
+                    ),
+                              Text(
                               "Your Email",
-                              textAlign: TextAlign.left,
+                              
+                                  textAlign: TextAlign.left,
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
+                               height: 60.h,
+                              width:306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -145,17 +160,26 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                             const Text(
+                              SizedBox(height: ScreenUtil().setHeight(16), //269
+                    ),
+                              Text(
                               "Your Phone Number",
                               textAlign: TextAlign.left,
+                                  
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
+                               height: 60.h,
+                              width:306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -190,17 +214,26 @@ class SignUp extends StatelessWidget {
                               ),
                             ),
 
-                             const SizedBox(
-                              height: 16,
-                            ),
-                             const Text(
+                               SizedBox(height: ScreenUtil().setHeight(16), //269
+                    ),
+                              Text(
                               "Your Address",
                               textAlign: TextAlign.left,
+                                     
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
+                               height: 60.h,
+                              width:306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -234,12 +267,19 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            const Text(
+                              SizedBox(height: ScreenUtil().setHeight(16), //269
+                    ),
+                             Text(
                               "Enter your password",
                               textAlign: TextAlign.left,
+                                     
+                               style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: ScreenUtil().setSp(18),
+                      color: Color(0xff1e1c1c),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                             ),
                             const SizedBox(
                               height: 24,
@@ -287,6 +327,8 @@ class SignUp extends StatelessWidget {
                             //       )),
                             // ),
                              Container(
+                               height: 60.h,
+                              width:306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -320,9 +362,8 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
+                              SizedBox(height: ScreenUtil().setHeight(34), //269
+                    ),
                            
                             Container(
                               height: 50,
