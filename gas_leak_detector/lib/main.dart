@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/local_data/local_data.dart';
 import 'screens/bluetooth_scanner.dart';
+import 'screens/dashboard.dart';
 import 'screens/login_screen.dart';
 
 checkLocal()async{
@@ -61,7 +62,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: 
-      Login(),
+      DashBoard(),
+     // Login(),
       // BluetoothApp(),
     );
   }

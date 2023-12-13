@@ -39,10 +39,12 @@ dependencies:
   google_fonts: ^6.1.0
   google_sign_in: ^6.1.6
   intl: ^0.18.1
+  modal_progress_hud_nsn: ^0.4.0
   permission_handler: ^11.0.1
   qr_code_scanner: ^1.0.1
   scanning_effect: ^1.0.4
   shared_preferences: ^2.2.2
+  syncfusion_flutter_charts: ^23.2.7
   wifi_iot: ^0.3.18+1
   
 
