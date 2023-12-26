@@ -35,13 +35,14 @@ class SignUp extends StatelessWidget {
                       decoration: const BoxDecoration(
                           //color: AppColors.mainColor
                           ),
-                      child:  Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                           SizedBox(height: ScreenUtil().setHeight(208), //269
-                    ),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(208), //269
+                          ),
                         ],
                       ),
                     ),
@@ -56,23 +57,23 @@ class SignUp extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Text(
+                            Text(
                               "Your Name",
                               textAlign: TextAlign.left,
-                                  
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
-                              SizedBox(height: ScreenUtil().setHeight(16), //269
-                    ),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(16), //269
+                            ),
                             Container(
                               height: 60.h,
-                              width:306.w,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -85,7 +86,6 @@ class SignUp extends StatelessWidget {
                               child: TextFormField(
                                 controller: signupcontroller.nameController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: signupcontroller.validationName,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -95,7 +95,7 @@ class SignUp extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
                                   filled: true,
-                                 hintText: "Enter your name",
+                                  hintText: "Enter your name",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -106,27 +106,27 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                           ///////// //name//////end//////////////////////////
-                              SizedBox(height: ScreenUtil().setHeight(16), //269
-                    ),
-                              Text(
+                            ///////// //name//////end//////////////////////////
+                            SizedBox(
+                              height: ScreenUtil().setHeight(16), //269
+                            ),
+                            Text(
                               "Your Email",
-                              
-                                  textAlign: TextAlign.left,
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
-                               height: 60.h,
-                              width:306.w,
+                              height: 60.h,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -139,7 +139,6 @@ class SignUp extends StatelessWidget {
                               child: TextFormField(
                                 controller: signupcontroller.emailController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: signupcontroller.validationEmail,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -149,7 +148,7 @@ class SignUp extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
                                   filled: true,
-                                 hintText: "Enter your email",
+                                  hintText: "Enter your email",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -160,26 +159,26 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                              SizedBox(height: ScreenUtil().setHeight(16), //269
-                    ),
-                              Text(
+                            SizedBox(
+                              height: ScreenUtil().setHeight(16), //269
+                            ),
+                            Text(
                               "Your Phone Number",
                               textAlign: TextAlign.left,
-                                  
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
-                               height: 60.h,
-                              width:306.w,
+                              height: 60.h,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -190,9 +189,9 @@ class SignUp extends StatelessWidget {
                                 ],
                               ),
                               child: TextFormField(
-                                controller: signupcontroller.mobilenumberController,
+                                controller:
+                                    signupcontroller.mobilenumberController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: signupcontroller.validationMobile,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -202,7 +201,7 @@ class SignUp extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
                                   filled: true,
-                                 hintText: "Enter your phone number",
+                                  hintText: "Enter your phone number",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -214,26 +213,26 @@ class SignUp extends StatelessWidget {
                               ),
                             ),
 
-                               SizedBox(height: ScreenUtil().setHeight(16), //269
-                    ),
-                              Text(
+                            SizedBox(
+                              height: ScreenUtil().setHeight(16), //269
+                            ),
+                            Text(
                               "Your Address",
                               textAlign: TextAlign.left,
-                                     
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             Container(
-                               height: 60.h,
-                              width:306.w,
+                              height: 60.h,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -246,7 +245,6 @@ class SignUp extends StatelessWidget {
                               child: TextFormField(
                                 controller: signupcontroller.addressController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: signupcontroller.validationAddress,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -256,7 +254,7 @@ class SignUp extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
                                   filled: true,
-                                 hintText: "Enter your address",
+                                  hintText: "Enter your address",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -267,19 +265,19 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                              SizedBox(height: ScreenUtil().setHeight(16), //269
-                    ),
-                             Text(
+                            SizedBox(
+                              height: ScreenUtil().setHeight(16), //269
+                            ),
+                            Text(
                               "Enter your password",
                               textAlign: TextAlign.left,
-                                     
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                             const SizedBox(
                               height: 24,
@@ -317,7 +315,7 @@ class SignUp extends StatelessWidget {
                             //                   : const Icon(
                             //                       Icons.visibility_off),
                             //             ),
-                                       
+
                             //             fillColor: Colors.white,
                             //             filled: true,
                             //             border: OutlineInputBorder(
@@ -326,9 +324,9 @@ class SignUp extends StatelessWidget {
                             //                 borderSide: BorderSide.none)),
                             //       )),
                             // ),
-                             Container(
-                               height: 60.h,
-                              width:306.w,
+                            Container(
+                              height: 60.h,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -341,7 +339,6 @@ class SignUp extends StatelessWidget {
                               child: TextFormField(
                                 controller: signupcontroller.passwordController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: signupcontroller.validationPassword,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -351,7 +348,7 @@ class SignUp extends StatelessWidget {
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
                                   filled: true,
-                                 hintText: "Enter your password",
+                                  hintText: "Enter your password",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -362,67 +359,90 @@ class SignUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                              SizedBox(height: ScreenUtil().setHeight(34), //269
-                    ),
-                           
-                            Container(
-                              height: 50,
-                              width: double.infinity,
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                              ),
-                              decoration: const ShapeDecoration(
-                                shape: StadiumBorder(),
-                              ),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    shape: const StadiumBorder(),
-                                    primary: AppColors.mainColor),
-                                onPressed: () async {
-                                  if (AppKeys.signupKey.currentState!.validate()) {
-                                    AppKeys.signupKey.currentState!.save();
-                                    await signupcontroller.signup();
-                                  }
-                                },
-                                child:
-                                    signupcontroller.isLoading ? const ColorfulCircularProgressIndicator(colors: [
-                                      Colors.blue, Colors.red, Colors.green, Colors.yellow
-                                    ]) :
-                                    Text(
-                                  "Sign Up".tr,
-                                  style: const TextStyle(color: Colors.white),
+                            SizedBox(
+                              height: ScreenUtil().setHeight(34), //269
+                            ),
+
+                            Center(
+                              child: Container(
+                                height: 44.h,
+                                width: 144.w,
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 30,
+                                ),
+                                decoration: const ShapeDecoration(
+                                  shape: StadiumBorder(),
+                                ),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      //shape: const StadiumBorder(),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            5), // <-- Radius
+                                      ),
+                                      primary: AppColors.mainColor),
+                                  onPressed: () async {
+                                    if (AppKeys.signupKey.currentState!
+                                        .validate()) {
+                                      AppKeys.signupKey.currentState!.save();
+                                      await signupcontroller.signup();
+                                    }
+                                  },
+                                  child: signupcontroller.isLoading
+                                      ? const ColorfulCircularProgressIndicator(
+                                          colors: [
+                                              Colors.blue,
+                                              Colors.red,
+                                              Colors.green,
+                                              Colors.yellow
+                                            ])
+                                      : Text(
+                                          "Sign Up".tr,
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
                                 ),
                               ),
                             ),
                             const SizedBox(
                               height: 16,
                             ),
-                           
+
                             // TextButton(
                             //   onPressed: () {
                             //     Get.offAll(()=>Login());
                             //   },
-                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Already have an account?",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    )
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Already have an account?",
+                                  style: GoogleFonts.inter(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff000000),
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                 
-                                  TextButton(
-                                                             onPressed: () {
-                                Get.offAll(()=>const Login());
-                                                             },
-                                   child: Text(
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Get.offAll(() => const Login());
+                                  },
+                                  child: Text(
                                     " Sign In".tr,
+                                    style: GoogleFonts.inter(
+                                      textStyle: TextStyle(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        color: Color(0xff1366D9),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
                                   ),
-                                  ),
-                                ],
-                           ),
-                           // ),
+                                ),
+                              ],
+                            ),
+                            // ),
                             const SizedBox(
                               height: 24,
                             ),

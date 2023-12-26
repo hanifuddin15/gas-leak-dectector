@@ -5,6 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:gas_leak_detector/core/urls/urls.dart';
 import 'package:gas_leak_detector/models/login_model.dart';
 import 'package:gas_leak_detector/models/sign_up_model.dart';
+import 'package:device_info/device_info.dart';
+import 'package:gas_leak_detector/screens/dashboard.dart';
+import 'package:gas_leak_detector/screens/dashboard_indicator_screen.dart';
+
 import 'package:gas_leak_detector/screens/qr_code_scanner_screen.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
@@ -12,6 +16,7 @@ import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../core/local_data/local_data.dart';
+import '../screens/gas_leak_detector_home_screen.dart';
 //import '../../core/utils/urls.dart';
 //import '../../model/doctor/login_model/login_result_model.dart';
 
@@ -24,6 +29,9 @@ class LoginController extends GetxController{
 // Observe the boolean value
  final obscureText = true.obs;
  LoginResult? loginResult;
+
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  String mobiledeviceId = '';
 
   // void toggleObscureText() {
   //  // obscureText.value = !obscureText.value;
@@ -253,7 +261,9 @@ class LoginController extends GetxController{
 
                   isLoading = false;
                   update();
-                  Get.offAll(() => ScanQrtoAddDevice());
+                  // Get.offAll(() => ScanQrtoAddDevice());
+                  //Get.offAll(() => DashBoard());
+                  Get.to(ScanQrtoAddDevice());
                 } else {
                   isLoading = false;
                   update();
@@ -276,13 +286,11 @@ class LoginController extends GetxController{
             Get.snackbar('Login', 'Server Error');
           }
 
-          // You can save the token for future API requests or use it as needed
-          // For now, let's just print it
+         
           print('JWT Token: $jwtToken');
 
-          // Navigate to the dashboard screen
-          // Note: You should use Get.off instead of Navigator for consistency with GetX
-          Get.offAll(() => ScanQrtoAddDevice());
+         Get.offAll(() => ScanQrtoAddDevice());
+          //Get.offAll(() => DashBoard());
         } else {
           // Handle API login error
           print('API Login Error: ${responseData['msg']}');
@@ -310,6 +318,24 @@ login() async {
   update();
 
   Uri url = Uri.parse(Urls.baseUrl + Urls.login);
+
+
+  /* Device Id */
+
+ 
+  
+  try {
+    if (GetPlatform.isAndroid) {
+      AndroidDeviceInfo androidInfo = await deviceInfoPlugin.androidInfo;
+      mobiledeviceId = androidInfo.androidId;
+    } else if (GetPlatform.isIOS) {
+      IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
+      mobiledeviceId = iosInfo.identifierForVendor;
+    }
+  } catch (e) {
+    print('Error getting device ID: $e');
+  }
+
 
 
 //newly developed by hanif
@@ -346,7 +372,10 @@ try {
 
           isLoading = false;
           update();
-          Get.offAll(() => ScanQrtoAddDevice());
+         ////Get.offAll(() => ScanQrtoAddDevice()); //DashBoardIndicator
+          //Get.offAll(() => DashBoard());
+           //Get.offAll(() => DashBoardIndicator()); //GasLeakDetectorHomeScreen
+             Get.offAll(() => GasLeakDetectorHomeScreen()); 
         } else {
           isLoading = false;
           update();
@@ -384,15 +413,19 @@ setLocalData(UserProfile userInfo) async {
   if (userInfo != null) {
     // If personalInfo is not null, set the data and mark as logged in
     await localStorage.setString(LocalData.uname, userController.value.text.trim());
+    await localStorage.setString(LocalData.uiname, userInfo.name!);
     await localStorage.setString(LocalData.pwd, passwordController.value.text.trim());
     await localStorage.setInt(LocalData.Id, userInfo.id!);
     await localStorage.setString(LocalData.tkn, loginResult!.data!.jwtToken!.accessToken!);
     await localStorage.setBool(LocalData.ild, true);
+     await localStorage.setString(LocalData.mobileDeviceId, mobiledeviceId); 
 
     localData.id = userInfo.id!;
     localData.username = userController.value.text.trim();
     localData.password = passwordController.value.text.trim();
     localData.access_token = loginResult!.data!.jwtToken!.accessToken!;
+    localData.mobile_device_id = mobiledeviceId;
+    localData.name = userInfo.name!;
     localData.isLoggedIn = true;
   } else {
     // If personalInfo is null, clear the local storage and mark as logged out

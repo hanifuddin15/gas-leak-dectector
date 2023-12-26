@@ -26,10 +26,12 @@ class LocalData{
   static String mobileno = "mobile";
   static String pwd = "password";
   static String ild = "isLoggedIn";
+  static String mobileDeviceId = "sync_mobile_id";
   static String tkn = "access_token";
   int userId = 0;
   int id =0;
   String access_token = "";
+  String mobile_device_id ="";
   String name ="";
   String username = "";
   String password = "";

@@ -9,7 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'core/local_data/local_data.dart';
 import 'screens/bluetooth_scanner.dart';
 import 'screens/dashboard.dart';
+import 'screens/gas_leak_detector_home_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/qr_code_result_screen.dart';
 
 checkLocal()async{
   LocalData localData = LocalData();
@@ -22,6 +24,7 @@ String? user = localStorage.getString(LocalData.uiname);
   int? Id = localStorage.getInt(LocalData.Id);
   String? token = localStorage.getString(LocalData.tkn);
   bool? isLoggedIn = localStorage.getBool(LocalData.ild);
+  String?  mobileDeviceId = localStorage.getString(LocalData.mobileDeviceId);
 
   print(token);
   if(username!=null&&password!=null&&userId!=null&&token!=null&&isLoggedIn!=null){
@@ -30,6 +33,7 @@ String? user = localStorage.getString(LocalData.uiname);
     localData.username = username;
     localData.password = password;
     localData.access_token = token;
+    localData.mobile_device_id = mobileDeviceId!; 
     localData.isLoggedIn = isLoggedIn;
   }
 
@@ -70,8 +74,10 @@ class MyApp extends StatelessWidget {
         ),
         home: 
        // DashBoard(),
-        //Login(),
-        SignUp(),
+        Login(),
+        //ScannedResultPage(),
+        //GasLeakDetectorHomeScreen(),
+       // SignUp(),
         // BluetoothApp(),
       );
         }

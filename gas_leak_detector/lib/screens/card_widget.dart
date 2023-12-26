@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gas_leak_detector/core/values/colors.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomCard extends StatelessWidget {
   final String iconPath;
   final String title;
-  final String status;
+   final  String status;
 
   const CustomCard({
     required this.iconPath,
@@ -17,14 +20,14 @@ class CustomCard extends StatelessWidget {
     double screenHeight = Get.height;
     double screenWidth = Get.width;
 
-    double cardHeight = screenHeight * 0.05; // Adjust the factor as needed
-    double cardWidth = screenWidth * 0.25; // Adjust the factor as needed
+    double cardHeight = 60.h;//screenHeight * 0.1; // Adjust the factor as needed
+    double cardWidth = 100.w;//screenWidth * 0.5; // Adjust the factor as needed
 
     return Container(
       height: cardHeight,
       width: cardWidth,
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: AppColors.cardbuttonColor,
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [
           BoxShadow(
@@ -36,31 +39,41 @@ class CustomCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Row(
               children: [
-                Image.asset(
-                  iconPath,
-                  width: cardWidth * 0.4,
-                  height: cardHeight * 0.4,
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Image.asset(
+                    iconPath,
+                    width: 13.w,//cardWidth * 0.2,
+                    height: 18.h//cardHeight * 0.2,
+                  ),
                 ),
                 Column(
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                       style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(8),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
                     ),
                     Text(
                       status,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                       style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(15),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
                     ),
                   ],
                 ),

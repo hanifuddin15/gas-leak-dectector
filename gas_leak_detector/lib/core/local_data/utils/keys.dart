@@ -4,6 +4,7 @@ class AppKeys {
   // ........... Form Keys ...............
   static final loginKey = GlobalKey<FormState>();
   static final signupKey = GlobalKey<FormState>();
+  static final ssidkey = GlobalKey<FormState>();
   static final forgotPasswordKey = GlobalKey<FormState>();
   static final forgotNewPassKey = GlobalKey<FormState>();
 

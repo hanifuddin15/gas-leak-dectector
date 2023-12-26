@@ -2,6 +2,7 @@ import 'package:colorful_circular_progress_indicator/colorful_circular_progress_
 import 'package:flutter/material.dart';
 import 'package:gas_leak_detector/controllers/login_controller.dart';
 import 'package:gas_leak_detector/core/local_data/utils/keys.dart';
+import 'package:gas_leak_detector/screens/dashboard.dart';
 import 'package:gas_leak_detector/screens/sign_up_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,13 +35,13 @@ class Login extends StatelessWidget {
                       decoration: const BoxDecoration(
                           //color: AppColors.mainColor
                           ),
-                      child:  Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                        SizedBox(height: ScreenUtil().setHeight(240) //269
-                    ),
+                          SizedBox(height: ScreenUtil().setHeight(240) //269
+                              ),
                         ],
                       ),
                     ),
@@ -55,22 +56,22 @@ class Login extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Text(
+                            Text(
                               "Your Phone Number",
                               textAlign: TextAlign.left,
-                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                             SizedBox(height: ScreenUtil().setHeight(16) //40
-                    ),
+                                ),
                             Container(
-                           height: 60.h,
-                          width: 306.w,
+                              height: 60.h,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -83,7 +84,6 @@ class Login extends StatelessWidget {
                               child: TextFormField(
                                 controller: logincontroller.userController,
                                 keyboardType: TextInputType.text,
-                                
                                 validator: logincontroller.validationUser,
                                 textInputAction: TextInputAction.next,
                                 onChanged: (value) {
@@ -92,11 +92,13 @@ class Login extends StatelessWidget {
                                 decoration: InputDecoration(
                                   prefixIcon: const Icon(Icons.person_outline),
                                   fillColor: Colors.white,
-                                  hintStyle: TextStyle(fontSize: ScreenUtil().setSp(16),
-                      color: Color(0xff757171),
-                      fontWeight: FontWeight.normal,),
+                                  hintStyle: TextStyle(
+                                    fontSize: ScreenUtil().setSp(16),
+                                    color: Color(0xff757171),
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                   filled: true,
-                                 hintText: "Enter your phone number",
+                                  hintText: "Enter your phone number",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20),
                                     borderSide: BorderSide.none,
@@ -107,24 +109,24 @@ class Login extends StatelessWidget {
                                 ),
                               ),
                             ),
-                                SizedBox(height: ScreenUtil().setHeight(25) //40
-                    ),
-                             Text(
+                            SizedBox(height: ScreenUtil().setHeight(25) //40
+                                ),
+                            Text(
                               "Your password",
                               textAlign: TextAlign.left,
                               style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(18),
-                      color: Color(0xff1e1c1c),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(18),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
-                                 SizedBox(height: ScreenUtil().setHeight(16) //40
-                    ),
+                            SizedBox(height: ScreenUtil().setHeight(16) //40
+                                ),
                             Container(
                               height: 60.h,
-                          width: 306.w,
+                              width: 306.w,
                               decoration: const BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -136,10 +138,12 @@ class Login extends StatelessWidget {
                               ),
                               child: Obx(() => TextFormField(
                                     keyboardType: TextInputType.text,
-                                    obscureText: logincontroller.obscureText.value,
-                                    controller: logincontroller.passwordController,
-
-                                     validator: logincontroller.validationPassword,
+                                    obscureText:
+                                        logincontroller.obscureText.value,
+                                    controller:
+                                        logincontroller.passwordController,
+                                    validator:
+                                        logincontroller.validationPassword,
                                     textInputAction: TextInputAction.done,
                                     onChanged: (value) {
                                       logincontroller.password = value;
@@ -147,20 +151,22 @@ class Login extends StatelessWidget {
                                     decoration: InputDecoration(
                                         prefixIcon:
                                             const Icon(Icons.vpn_key_rounded),
-                                            hintText: "Enter your password",
-                                             hintStyle: TextStyle(fontSize: ScreenUtil().setSp(16),
-                      color: Color(0xff757171),
-                      fontWeight: FontWeight.normal,),
+                                        hintText: "Enter your password",
+                                        hintStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(16),
+                                          color: Color(0xff757171),
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                         suffixIcon: IconButton(
                                           onPressed: () {
                                             logincontroller.toggleObscureText();
                                           },
-                                          icon: logincontroller.obscureText.value
-                                              ? const Icon(Icons.visibility)
-                                              : const Icon(
-                                                  Icons.visibility_off),
+                                          icon:
+                                              logincontroller.obscureText.value
+                                                  ? const Icon(Icons.visibility)
+                                                  : const Icon(
+                                                      Icons.visibility_off),
                                         ),
-                                       
                                         fillColor: Colors.white,
                                         filled: true,
                                         border: OutlineInputBorder(
@@ -169,39 +175,39 @@ class Login extends StatelessWidget {
                                             borderSide: BorderSide.none)),
                                   )),
                             ),
-                                   SizedBox(height: ScreenUtil().setHeight(20) //40
-                    ),
-                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                         SizedBox(width: ScreenUtil().setWidth(100) //40
-                    ),
-                                  // const Text(
-                                  //   "Already have an account?",
-                                  //   style: TextStyle(
-                                  //     color: Colors.black,
-                                  //   )
-                                  // ),
-                                 
-                                  TextButton(
-                                                             onPressed: () {
-                                Get.offAll(()=>const Login());
-                                                             },
-                                   child: Text(
+                            SizedBox(height: ScreenUtil().setHeight(20) //40
+                                ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(width: ScreenUtil().setWidth(100) //40
+                                    ),
+                                // const Text(
+                                //   "Already have an account?",
+                                //   style: TextStyle(
+                                //     color: Colors.black,
+                                //   )
+                                // ),
+
+                                TextButton(
+                                  onPressed: () {
+                                    //Get.offAll(() => DashBoard());
+                                  },
+                                  child: Text(
                                     " Forgot Password".tr,
-                                        style: GoogleFonts.inter(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(14),
-                      color: Color(0xff1366D9),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                                    style: GoogleFonts.inter(
+                                      textStyle: TextStyle(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        color: Color(0xff1366D9),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
                                   ),
-                                  ),
-                                ],
-                           ),
-                                     SizedBox(height: ScreenUtil().setHeight(25) //40
-                    ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: ScreenUtil().setHeight(25) //40
+                                ),
                             Center(
                               child: Container(
                                 height: 44.h,
@@ -213,51 +219,54 @@ class Login extends StatelessWidget {
                                   shape: StadiumBorder(),
                                 ),
                                 child: ElevatedButton(
-                                  
                                   style: ElevatedButton.styleFrom(
                                       // shape: const StadiumBorder(),
-                                       shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(5), // <-- Radius
-    ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            5), // <-- Radius
+                                      ),
                                       primary: AppColors.mainColor),
                                   onPressed: () async {
-                                    if (AppKeys.loginKey.currentState!.validate()) {
+                                    if (AppKeys.loginKey.currentState!
+                                        .validate()) {
                                       AppKeys.loginKey.currentState!.save();
                                       await logincontroller.login();
                                     }
                                   },
-                                  child:
-                                      logincontroller.isLoading ? const ColorfulCircularProgressIndicator(colors: [
-                                        Colors.blue, Colors.red, Colors.green, Colors.yellow
-                                      ]) :
-                                      Text(
-                                    "Sign In".tr,
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
+                                  child: logincontroller.isLoading
+                                      ? const ColorfulCircularProgressIndicator(
+                                          colors: [
+                                              Colors.blue,
+                                              Colors.red,
+                                              Colors.green,
+                                              Colors.yellow
+                                            ])
+                                      : Text(
+                                          "Sign In".tr,
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
                                 ),
                               ),
                             ),
-                                       SizedBox(height: ScreenUtil().setHeight(27) //40
-                    ),
+                            SizedBox(height: ScreenUtil().setHeight(27) //40
+                                ),
                             Container(
                               height: 60.h,
                               width: 306.w,
                               child: ElevatedButton(
-                                onPressed: () async{
-                              
-                                  
-                                      await logincontroller.signInWithGoogle();
-                                   
+                                onPressed: () async {
+                                  await logincontroller.signInWithGoogle();
                                 },
                                 style: ElevatedButton.styleFrom(
                                   primary:
                                       Colors.white, // Button background color
                                   onPrimary: Colors.black, // Text color
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
-                                  padding:
-                                      const EdgeInsets.all(12), // Button padding
+                                  padding: const EdgeInsets.all(
+                                      12), // Button padding
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -272,55 +281,91 @@ class Login extends StatelessWidget {
                                     const SizedBox(
                                         width:
                                             16), // Adjust the spacing between icon and text
-                                     Text(
+                                    Text(
                                       'Continue with Google',
-                                                    style: GoogleFonts.inter(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(16),
-                      color: Color(0xff000000),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                                      style: GoogleFonts.inter(
+                                        textStyle: TextStyle(
+                                          fontSize: ScreenUtil().setSp(16),
+                                          color: Color(0xff000000),
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
                             ),
-                                           SizedBox(height: ScreenUtil().setHeight(25) //40
-                    ),
-                          Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                   Text(
-                                    "Don't have an account?",
-                                    style: GoogleFonts.inter(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(14),
-                      color: Color(0xff000000),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                            SizedBox(height: ScreenUtil().setHeight(25) //40
+                                ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Don't have an account?",
+                                  style: GoogleFonts.inter(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff000000),
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                 
-                                  TextButton(
-                                                             onPressed: () {
-                                Get.offAll(()=>const SignUp());
-                                                             },
-                                   child: Text(
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Get.offAll(() => const SignUp());
+                                  },
+                                  child: Text(
                                     " Sign Up".tr,
-                                       style: GoogleFonts.inter(
-                    textStyle: TextStyle(
-                      fontSize: ScreenUtil().setSp(14),
-                      color: Color(0xff1366D9),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                                    style: GoogleFonts.inter(
+                                      textStyle: TextStyle(
+                                        fontSize: ScreenUtil().setSp(14),
+                                        color: Color(0xff1366D9),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
                                   ),
-                                  ),
-                                ],
-                           ),
-                                                                  SizedBox(height: ScreenUtil().setHeight(24) //40
-                                                                  )
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: ScreenUtil().setHeight(24) //40
+                                ),
+                            Center(
+                              child: Container(
+                                height: 44.h,
+                                width: 144.w,
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 30,
+                                ),
+                                decoration: const ShapeDecoration(
+                                  shape: StadiumBorder(),
+                                ),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      // shape: const StadiumBorder(),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            5), // <-- Radius
+                                      ),
+                                      primary: AppColors.mainColor),
+                                  onPressed: () async {
+                                    Get.to(SignUp());
+                                  },
+                                  child: logincontroller.isLoading
+                                      ? const ColorfulCircularProgressIndicator(
+                                          colors: [
+                                              Colors.blue,
+                                              Colors.red,
+                                              Colors.green,
+                                              Colors.yellow
+                                            ])
+                                      : Text(
+                                          "Next Page".tr,
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
