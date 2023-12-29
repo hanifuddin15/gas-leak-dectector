@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "967163134181",
-    "project_id": "logingld-3ceb7",
-    "storage_bucket": "logingld-3ceb7.appspot.com"
+    "project_number": "760093085901",
+    "project_id": "gasleaksignin",
+    "storage_bucket": "gasleaksignin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:967163134181:android:3f22df7b845cf0bb79940c",
+        "mobilesdk_app_id": "1:760093085901:android:2e4eb0634e45d18962d984",
         "android_client_info": {
-          "package_name": "com.kambaii.gas_leak_detector"
+          "package_name": "com.kambaii.gas_leak_detector_gld"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "760093085901-3h1ogqubmrapt85o2m33d5htl7jprg6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kambaii.gas_leak_detector_gld",
+            "certificate_hash": "e75380ff56896509616bd663d1b68770e02d51bc"
+          }
+        },
+        {
+          "client_id": "760093085901-ha12fohrfv1kve321o6d0tj6rjhmoedg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAE-jpkUitFNquCL2YQ6In7F-azDJ71qYc"
+          "current_key": "AIzaSyBpWoI8DPV8nVGzWa1ewrIAycjvuABB8j0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760093085901-ha12fohrfv1kve321o6d0tj6rjhmoedg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -23,6 +23,7 @@ class LocalData{
   static String uid = "userId";
   static String uiname = "name";
   static String uname = "username";
+  static String gname = "username";
   static String mobileno = "mobile";
   static String pwd = "password";
   static String ild = "isLoggedIn";
@@ -34,6 +35,7 @@ class LocalData{
   String mobile_device_id ="";
   String name ="";
   String username = "";
+  String gmail = '';
   String password = "";
   String mobile ="";
   bool isLoggedIn = false;

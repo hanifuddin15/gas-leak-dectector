@@ -28,7 +28,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.kambaii.gas_leak_detector"
+    namespace "com.kambaii.gas_leak_detector_gld"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -47,7 +47,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.kambaii.gas_leak_detector"
+        applicationId "com.kambaii.gas_leak_detector_gld"
         // You can update the following values to match your application needs.
         // For more flutter.minSdkVersion information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 20
@@ -71,10 +71,12 @@ flutter {
     source '../..'
 }
 apply plugin: 'com.google.gms.google-services'
+
 //dependencies {}
 dependencies {
     implementation "androidx.multidex:multidex:2.0.1"
-    implementation platform("com.google.firebase:firebase-bom:32.6.0")
-    implementation "com.google.firebase:firebase-analytics"
+    //implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+      implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation("com.google.firebase:firebase-analytics")
    
 }

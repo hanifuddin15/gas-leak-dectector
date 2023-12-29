@@ -1,17 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gas_leak_detector/firebase_options.dart';
 import 'package:gas_leak_detector/screens/qr_code_scanner_screen.dart';
 import 'package:gas_leak_detector/screens/sign_up_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/local_data/local_data.dart';
+import 'routes/routes.dart';
 import 'screens/bluetooth_scanner.dart';
 import 'screens/dashboard.dart';
+import 'screens/forgot_password_screen.dart';
 import 'screens/gas_leak_detector_home_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/my_profile.dart';
 import 'screens/qr_code_result_screen.dart';
+import 'screens/settings_screen.dart';
 
 checkLocal()async{
   LocalData localData = LocalData();
@@ -43,9 +48,12 @@ String? user = localStorage.getString(LocalData.uiname);
 }
 void main() async {
    WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  
   await initSharedPreferences();
   //HomeBinding().dependencies();
+   await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+   );
     await checkLocal();
   runApp(const MyApp());
 }
@@ -73,12 +81,26 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: 
+       // Get.find<LocalData>().isLoggedIn == true ? const GasLeakDetectorHomeScreen() : const Login(),
        // DashBoard(),
         Login(),
+        //ForgotPasswordScreen(),
         //ScannedResultPage(),
         //GasLeakDetectorHomeScreen(),
        // SignUp(),
         // BluetoothApp(),
+        // Obx(() {
+        //     return Get.find<LocalData>().isLoggedIn == true ? const GasLeakDetectorHomeScreen() : const Login();
+        //   }),
+        
+    //     initialRoute: '/',
+    // getPages: [
+    //   GetPage(name: '/', page: () => GasLeakDetectorHomeScreen()),
+    //   GetPage(name: '/Profile', page: () => MyProfileScreen()),
+    //   GetPage(name: '/Settings', page: () => Settings()),
+    // ],
+    initialRoute: AppPages.getnavbar(),
+    getPages: AppPages.routes,
       );
         }
     );

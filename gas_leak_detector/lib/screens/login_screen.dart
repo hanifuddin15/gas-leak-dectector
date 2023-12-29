@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/values/colors.dart';
+import 'forgot_password_screen.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -191,7 +192,7 @@ class Login extends StatelessWidget {
 
                                 TextButton(
                                   onPressed: () {
-                                    //Get.offAll(() => DashBoard());
+                                    Get.offAll(() => ForgotPasswordScreen());
                                   },
                                   child: Text(
                                     " Forgot Password".tr,
@@ -327,45 +328,45 @@ class Login extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: ScreenUtil().setHeight(24) //40
-                                ),
-                            Center(
-                              child: Container(
-                                height: 44.h,
-                                width: 144.w,
-                                margin: const EdgeInsets.symmetric(
-                                  horizontal: 30,
-                                ),
-                                decoration: const ShapeDecoration(
-                                  shape: StadiumBorder(),
-                                ),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      // shape: const StadiumBorder(),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            5), // <-- Radius
-                                      ),
-                                      primary: AppColors.mainColor),
-                                  onPressed: () async {
-                                    Get.to(SignUp());
-                                  },
-                                  child: logincontroller.isLoading
-                                      ? const ColorfulCircularProgressIndicator(
-                                          colors: [
-                                              Colors.blue,
-                                              Colors.red,
-                                              Colors.green,
-                                              Colors.yellow
-                                            ])
-                                      : Text(
-                                          "Next Page".tr,
-                                          style: const TextStyle(
-                                              color: Colors.white),
-                                        ),
-                                ),
-                              ),
-                            ),
+                            // SizedBox(height: ScreenUtil().setHeight(24) //40
+                            //     ),
+                            // Center(
+                            //   child: Container(
+                            //     height: 44.h,
+                            //     width: 144.w,
+                            //     margin: const EdgeInsets.symmetric(
+                            //       horizontal: 30,
+                            //     ),
+                            //     decoration: const ShapeDecoration(
+                            //       shape: StadiumBorder(),
+                            //     ),
+                            //     child: ElevatedButton(
+                            //       style: ElevatedButton.styleFrom(
+                            //           // shape: const StadiumBorder(),
+                            //           shape: RoundedRectangleBorder(
+                            //             borderRadius: BorderRadius.circular(
+                            //                 5), // <-- Radius
+                            //           ),
+                            //           primary: AppColors.mainColor),
+                            //       onPressed: () async {
+                            //         Get.to(SignUp());
+                            //       },
+                            //       child: logincontroller.isLoading
+                            //           ? const ColorfulCircularProgressIndicator(
+                            //               colors: [
+                            //                   Colors.blue,
+                            //                   Colors.red,
+                            //                   Colors.green,
+                            //                   Colors.yellow
+                            //                 ])
+                            //           : Text(
+                            //               "Next Page".tr,
+                            //               style: const TextStyle(
+                            //                   color: Colors.white),
+                            //             ),
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

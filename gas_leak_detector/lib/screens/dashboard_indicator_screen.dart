@@ -320,10 +320,12 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
+import '../controllers/bottom_nav_bar_controller.dart';
 import '../controllers/charttab_controller.dart';
 import '../core/values/colors.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import 'bottom_navbar_screen.dart';
 import 'card_widget.dart';
 import 'gas_leak_detector_home_screen.dart';
 
@@ -338,6 +340,8 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
     double screenWidth = MediaQuery.of(context).size.width;
     double cardPadding = 5.0;
     final ChartTabController mycontroller = Get.put(ChartTabController());
+    final BottomNavigationBarController _bottomNavigationBarController =
+      Get.put(BottomNavigationBarController());
 
     @override
     void initState() {
@@ -422,6 +426,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
                   ],
                 ),
               ),
+               bottomNavigationBar: BottomNavigationBarView(),
             ),
           );
         },
