@@ -10,4 +10,6 @@ class Urls {
  static const  getDeviceSensorData = "get-sensor-data";
  static const getDeviceStatusData = "get-status-data";
  //static const sendDeviceStatusData = "send-status-data";
+ static const profieShow = "userinfo";
+ static const profile_update = "userinfoupdate";
 }

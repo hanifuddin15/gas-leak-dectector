@@ -164,9 +164,9 @@ class Login extends StatelessWidget {
                                           },
                                           icon:
                                               logincontroller.obscureText.value
-                                                  ? const Icon(Icons.visibility)
+                                                  ? const Icon(Icons.visibility_off)
                                                   : const Icon(
-                                                      Icons.visibility_off),
+                                                      Icons.visibility),
                                         ),
                                         fillColor: Colors.white,
                                         filled: true,

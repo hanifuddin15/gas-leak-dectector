@@ -22,6 +22,8 @@ class LocalData{
   static String Id = "id";
   static String uid = "userId";
   static String uiname = "name";
+  static String mail = "email";
+  static String address = "address";
   static String uname = "username";
   static String gname = "username";
   static String mobileno = "mobile";
@@ -36,6 +38,8 @@ class LocalData{
   String name ="";
   String username = "";
   String gmail = '';
+  String email ='';
+  String addrss = '';
   String password = "";
   String mobile ="";
   bool isLoggedIn = false;

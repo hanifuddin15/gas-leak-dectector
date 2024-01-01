@@ -306,7 +306,11 @@ try {
   print(e);
 }
 }
-
+ logout()async{
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.clear();
+    Get.offAll(()=>Login());
+  }
 
 setLocalData(UserProfile userInfo) async {
   LocalData localData = Get.find<LocalData>();
@@ -321,8 +325,10 @@ setLocalData(UserProfile userInfo) async {
     //await localStorage.setString(LocalData.uiname, users!.displayName!);//for google
     await localStorage.setString(LocalData.pwd, passwordController.value.text.trim());
     await localStorage.setInt(LocalData.Id, userInfo.id!);
+    await localStorage.setString(LocalData.mail, userInfo.email??'');
 
     await localStorage.setString(LocalData.tkn, loginResult!.data!.jwtToken!.accessToken!);
+    await localStorage.setString(LocalData.address, userInfo.address??'');
     //await localStorage.setString(LocalData.tkn, googleloginResult!.data!.jwtToken!.accessToken!);
     await localStorage.setBool(LocalData.ild, true);
      await localStorage.setString(LocalData.mobileDeviceId, mobiledeviceId); 
@@ -333,6 +339,9 @@ setLocalData(UserProfile userInfo) async {
     localData.access_token = loginResult!.data!.jwtToken!.accessToken!;
     localData.mobile_device_id = mobiledeviceId;
     localData.name = userInfo.name!;
+    localData.mobile =userInfo.mobile!;
+    localData.email = userInfo.email??'';
+    localData.addrss = userInfo.address??'';
     //localData.name =  users!.displayName!; //for google
     //localData.username = users!.displayName!; //for google
     localData.isLoggedIn = true;
@@ -360,7 +369,7 @@ setLocalData(UserProfile userInfo) async {
 
   @override
   void onClose() {
-    passwordController.dispose();
+   // passwordController.dispose();
    // signOutFromGoogle();
     super.onClose();
   }
