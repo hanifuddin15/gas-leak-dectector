@@ -61,14 +61,14 @@ var profilecontroller = ProfileScreenController();
 
 
   void applyDefault() {
-  // nameController.text = myProfile.name ?? '';
-  // phoneController.text = myProfile.mobile ?? '';
-  // emailController.text = myProfile.email ?? '';
-  // addressController.text = myProfile.address ?? '';
-  nameController.text = localData.name ?? '';
-  phoneController.text = localData.mobile ?? '';
-  emailController.text = localData.email ?? '';
-  addressController.text = localData.addrss ?? '';
+  nameController.text = myProfile.name ?? '';
+  phoneController.text = myProfile.mobile ?? '';
+  emailController.text = myProfile.email ?? '';
+  addressController.text = myProfile.address ?? '';
+  // nameController.text = localData.name ?? '';
+  // phoneController.text = localData.mobile ?? '';
+  // emailController.text = localData.email ?? '';
+  // addressController.text = localData.addrss ?? '';
   update();
 }
 

@@ -339,7 +339,7 @@ setLocalData(UserProfile userInfo) async {
     localData.access_token = loginResult!.data!.jwtToken!.accessToken!;
     localData.mobile_device_id = mobiledeviceId;
     localData.name = userInfo.name!;
-    localData.mobile =userInfo.mobile!;
+    localData.mobile =userInfo.mobile??'';
     localData.email = userInfo.email??'';
     localData.addrss = userInfo.address??'';
     //localData.name =  users!.displayName!; //for google
