@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gas_leak_detector/controllers/qrcode_scanner_controller.dart';
 import 'package:gas_leak_detector/core/values/colors.dart';
 import 'package:gas_leak_detector/screens/qr_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'gas_leak_detector_home_screen.dart';
 
@@ -42,11 +44,13 @@ class _ScanQrtoAddDeviceState extends State<ScanQrtoAddDevice> {
                     automaticallyImplyLeading: false,
                     title: Text(
                       "Scan Device Qr Code",
-                      style: TextStyle(
-                        color: AppColors.fontColor,
-                        fontSize: 20,
-                        fontFamily: "Roboto",
-                      ),
+                               style:GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  fontSize: ScreenUtil().setSp(20),
+                                  color: Color(0xff1e1c1c),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                     ),
                     backgroundColor: Colors.transparent,
                     elevation: 0,

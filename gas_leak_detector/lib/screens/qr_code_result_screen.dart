@@ -188,11 +188,14 @@
 // scanned_result_page.dart
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:gas_leak_detector/controllers/qrcode_scanner_controller.dart';
 import 'package:gas_leak_detector/models/qr_scan_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../controllers/device_registration_controller.dart';
 import '../core/values/colors.dart';
+import 'qr_code_scanner_screen.dart';
 
 
 class ScannedResultPage extends StatelessWidget {
@@ -204,93 +207,174 @@ class ScannedResultPage extends StatelessWidget {
     Map<String, List<DeviceData>> groupedData = {};
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Scanned Result'),
-      ),
-      body: Center(
-        child: Obx(() {
-          if (qrController.result.value != null) {
-            try {
-              Map<String, dynamic> jsonMap =
-                  json.decode(qrController.result.value!.code!);
-              DeviceData deviceData = DeviceData.fromJson(jsonMap);
-
-              final key = _generateKey(deviceData);
-
-              groupedData.putIfAbsent(key, () => []).add(deviceData);
-            } catch (e) {
-              print('Error parsing JSON data: $e');
-              print('Scanned JSON data: ${qrController.result.value!.code!}');
-              return ListTile(
-                title: Text('Invalid QR Code Data'),
-              );
-            }
-
-            return ListView.builder(
-              itemCount: groupedData.length,
-              itemBuilder: (BuildContext context, int index) {
-                final key = groupedData.keys.elementAt(index);
-                final deviceDataList = groupedData[key]!;
-
-                return Column(
-                  children: deviceDataList.map((deviceData) {
-                    return Center(
-                      child: Card(
-                        elevation: 50,
-                        shadowColor: Colors.black,
-                        color: Colors.greenAccent[100],
-                        child: SizedBox(
-                          width: 300,
-                          height: 500,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: ListTile(
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+      // appBar: AppBar(
+      //   title: const Text('Scanned Result'),
+      // ),
+      body: Stack(
+        children: [
+          Container(
+             decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('images/Scanned Device Details Bg.png'),
+                          fit: BoxFit.fill)),
+            child: Center(
+              child: Obx(() {
+                if (qrController.result.value != null) {
+                  try {
+                    Map<String, dynamic> jsonMap =
+                        json.decode(qrController.result.value!.code!);
+                    DeviceData deviceData = DeviceData.fromJson(jsonMap);
+            
+                    final key = _generateKey(deviceData);
+            
+                    groupedData.putIfAbsent(key, () => []).add(deviceData);
+                  } catch (e) {
+                    print('Error parsing JSON data: $e');
+                    print('Scanned JSON data: ${qrController.result.value!.code!}');
+                    return ListTile(
+                      title: Text('Invalid QR Code Data'),
+                    );
+                  }
+            
+                  return ListView.builder(
+                    itemCount: groupedData.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final key = groupedData.keys.elementAt(index);
+                      final deviceDataList = groupedData[key]!;
+            
+                      return Column(
+          
+                        children: deviceDataList.map((deviceData) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: ScreenUtil().setHeight(250) //269
+                                  ),
+                              Row(
                                 children: [
-                                  Text('Organization: ${deviceData.organization}'),
-                                  Text('Device Name: ${deviceData.deviceName}'),
-                                  Text('Version Code: ${deviceData.versionCode}'),
-                                  Text('Device Type: ${deviceData.deviceType}'),
-                                  Text('Device ID: ${deviceData.deviceId}'),
-                                  Center(
-                                    child: Container(
-                                      margin: const EdgeInsets.symmetric(horizontal: 30),
-                                      decoration: const ShapeDecoration(
-                                        shape: StadiumBorder(),
-                                      ),
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          primary: AppColors.mainColor,
-                                        ),
-                                        onPressed: () async {
-                                          await controller.saveDeviceToServer(groupedData);
-                                        },
-                                        child: Text(
-                                          "Save".tr,
-                                          style: const TextStyle(color: Colors.white),
+                                  SizedBox(width: ScreenUtil().setWidth(40) //269
+                                  ),
+                                  Text("Device Details",
+                                            style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(20),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                                        
+                                                        ),
+                                ],
+                              ),
+                              Center(
+                                child: Card(
+                                  elevation: 50,
+                                  shadowColor: Colors.black,
+                                  color: Colors.greenAccent[100],
+                                  child: SizedBox(
+                                    width: 300.w,
+                                    height: 300.h,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: ListTile(
+                                        subtitle: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Organization: ${deviceData.organization}',
+                                            style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  ),
+                                            Text('Device Name: ${deviceData.deviceName}',
+                                                      style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),),
+                                            Text('Version Code: ${deviceData.versionCode}',          style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),),
+                                            Text('Device Type: ${deviceData.deviceType}',          style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),),
+                                            Text('Device ID: ${deviceData.deviceId}',          style:GoogleFonts.roboto(
+                                    textStyle: TextStyle(
+                                      fontSize: ScreenUtil().setSp(14),
+                                      color: Color(0xff1e1c1c),
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),),
+                                            Center(
+                                              child: Container(
+                                                margin: const EdgeInsets.symmetric(horizontal: 30),
+                                                decoration: const ShapeDecoration(
+                                                  shape: StadiumBorder(),
+                                                ),
+                                                child: ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(5),
+                                                    ),
+                                                    primary: AppColors.mainColor,
+                                                  ),
+                                                  onPressed: () async {
+                                                    await controller.saveDeviceToServer(groupedData);
+                                                  },
+                                                  child: Text(
+                                                    "Save".tr,
+                                                    style: const TextStyle(color: Colors.white),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                );
-              },
-            );
-          } else {
-            return const Text('No data');
-          }
-        }),
+                            ],
+                          );
+                        }).toList(),
+                      );
+                    },
+                  );
+                } else {
+                  return const Text('No data');
+                }
+              }),
+            ),
+          ),
+            Positioned(
+              top: 40,
+              left: 20,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Get.offAll(ScanQrtoAddDevice());
+                 //Get.back();
+                },
+              ),
+            ),
+        ],
       ),
     );
   }

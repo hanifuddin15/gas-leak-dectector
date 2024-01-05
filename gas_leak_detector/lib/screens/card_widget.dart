@@ -1,13 +1,101 @@
+// import 'package:flutter/material.dart';
+// import 'package:gas_leak_detector/core/values/colors.dart';
+// import 'package:get/get.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:google_fonts/google_fonts.dart';
+
+// class CustomCard extends StatelessWidget {
+//   final String iconPath;
+//   final String title;
+//    final  String status;
+
+//   const CustomCard({
+//     required this.iconPath,
+//     required this.title,
+//     required this.status,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     double screenHeight = Get.height;
+//     double screenWidth = Get.width;
+
+//     double cardHeight = 60.h;//screenHeight * 0.1; // Adjust the factor as needed
+//     double cardWidth = 100.w;//screenWidth * 0.5; // Adjust the factor as needed
+
+//     return Container(
+//       height: cardHeight,
+//       width: cardWidth,
+//       decoration: BoxDecoration(
+//         color: AppColors.cardbuttonColor,
+//         borderRadius: BorderRadius.circular(10.0),
+//         boxShadow: [
+//           BoxShadow(
+//             color: Colors.grey.withOpacity(0.5),
+//             spreadRadius: 2,
+//             blurRadius: 5,
+//             offset: Offset(0, 3),
+//           ),
+//         ],
+//       ),
+//       child: Padding(
+//         padding: EdgeInsets.fromLTRB(2, 2, 2, 2),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: [
+//             Row(
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.all(3.0),
+//                   child: Image.asset(
+//                     iconPath,
+//                     width: 13.w,//cardWidth * 0.2,
+//                     height: 18.h//cardHeight * 0.2,
+//                   ),
+//                 ),
+//                 Column(
+//                   children: [
+//                     Text(
+//                       title,
+//                        style: GoogleFonts.roboto(
+//                                 textStyle: TextStyle(
+//                                   fontSize: ScreenUtil().setSp(8),
+//                                   color: Colors.white,
+//                                   fontWeight: FontWeight.normal,
+//                                 ),
+//                               ),
+//                     ),
+//                     Text(
+//                       status,
+//                        style: GoogleFonts.roboto(
+//                                 textStyle: TextStyle(
+//                                   fontSize: ScreenUtil().setSp(15),
+//                                   color: Colors.white,
+//                                   fontWeight: FontWeight.normal,
+//                                 ),
+//                               ),
+//                     ),
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
-import 'package:gas_leak_detector/core/values/colors.dart';
-import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../core/values/colors.dart';
 
 class CustomCard extends StatelessWidget {
   final String iconPath;
   final String title;
-   final  String status;
+  final String status;
 
   const CustomCard({
     required this.iconPath,
@@ -20,8 +108,11 @@ class CustomCard extends StatelessWidget {
     double screenHeight = Get.height;
     double screenWidth = Get.width;
 
-    double cardHeight = 60.h;//screenHeight * 0.1; // Adjust the factor as needed
-    double cardWidth = 100.w;//screenWidth * 0.5; // Adjust the factor as needed
+    double cardHeight = 60.h;
+    double cardWidth = 100.w;
+
+    Color dotColor = status == "On" ? Colors.green : Colors.red;
+   Color textColor = status== "On" ? Colors.green : Colors.red;
 
     return Container(
       height: cardHeight,
@@ -49,31 +140,44 @@ class CustomCard extends StatelessWidget {
                   padding: const EdgeInsets.all(3.0),
                   child: Image.asset(
                     iconPath,
-                    width: 13.w,//cardWidth * 0.2,
-                    height: 18.h//cardHeight * 0.2,
+                    width: 13.w,
+                    height: 18.h,
                   ),
                 ),
                 Column(
                   children: [
                     Text(
                       title,
-                       style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: ScreenUtil().setSp(8),
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          fontSize: ScreenUtil().setSp(8),
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
                     ),
-                    Text(
-                      status,
-                       style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: ScreenUtil().setSp(15),
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
+                    Row(
+                      children: [
+                        Container(
+                          width: 8.0,
+                          height: 8.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: dotColor,
+                          ),
+                        ),
+                        SizedBox(width: 5.0),
+                        Text(
+                          status == "On" ? "On" : "Off",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              fontSize: ScreenUtil().setSp(15),
+                              color: textColor,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

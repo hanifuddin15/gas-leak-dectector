@@ -407,7 +407,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
                         children: List.generate(
                           chartcontroller.deviceSensorData.value?.sesnsorDevice?.sensorData?.length ?? 0,
                           (index) => buildChart(chartcontroller.deviceSensorData.value
-                              ?.sesnsorDevice?.sensorData?[index]?.childDeviceId ?? 'N/A', index),
+                              ?.sesnsorDevice?.sensorData?[index]?.childDeviceId.toString() ?? 'N/A', index),
                         ),
                       ),
                     ),
@@ -445,10 +445,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
           return SingleChildScrollView(
             child: Column(
               children: [
-                // Text('Battery Level: ${data.batteryLevel}'),
-                // Text('Temperature: ${data.temperature}'),
-                // Text('Humidity: ${data.humidity}'),
-                // Text('Gas Concentration Level: ${data.gasConcentrationLevel}'),
+              
                 Padding(
                           padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
                           child: Row(
@@ -458,7 +455,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
                                 child: CustomCard(
                                   iconPath: 'images/network icon.png',
                                   title: 'Internet Status',
-                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.internetStatus ?? 'N/A',
+                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.internetStatus.toString()=="1"? "On": "Off",
                                 ),
                               ),
                               Padding(
@@ -466,7 +463,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
                                 child: CustomCard(
                                   iconPath: 'images/electricity icon.png',
                                   title: 'Power Status',
-                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.powerStatus ?? 'N/A',
+                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.powerStatus.toString()=="1"? "On": "Off",
                                 ),
                               ),
                               Padding(
@@ -474,7 +471,7 @@ class _DashBoardIndicatorState extends State<DashBoardIndicator> {
                                 child: CustomCard(
                                   iconPath: 'images/network icon.png',
                                   title: 'GSM Status',
-                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.gsmStatus ?? 'N/A',
+                                  status: chartcontroller.deviceSensorData.value.sesnsorDevice?.deviceStatusData?.gsmStatus.toString() =="1"? "On": "Off",
                                 ),
                               ),
                             ],

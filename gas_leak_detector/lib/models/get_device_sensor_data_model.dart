@@ -226,15 +226,15 @@ class SensorDevice {
 
 class DeviceStatusData {
   int? id;
-  String? deviceId;
-  String? childDeviceId;
-  String? gasLeakStatus;
-  String? gasValveStatus;
-  String? powerStatus;
-  String? gsmStatus;
-  String? wifiStatus;
-  String? internetStatus;
-  String? userId;
+  int? deviceId;
+  int? childDeviceId;
+  int? gasLeakStatus;
+  int? gasValveStatus;
+  int? powerStatus;
+  int? gsmStatus;
+  int? wifiStatus;
+  int? internetStatus;
+  int? userId;
   String? dataDateTime;
   String? createdAt;
   String? updatedAt;
@@ -291,14 +291,14 @@ class DeviceStatusData {
 
 class SensorData {
   int? id;
-  String? deviceId;
-  String? childDeviceId;
-  String? batteryLevel;
-  String? temperature;
-  String? humidity;
-  String? gasConcentrationLevel;
-  String? userId;
-  String? deviceStatusId;
+  int? deviceId;
+  int? childDeviceId;
+  int? batteryLevel;
+  int? temperature;
+  int? humidity;
+  int? gasConcentrationLevel;
+  int? userId;
+  int? deviceStatusId;
   String? dataDateTime;
   String? createdAt;
   String? updatedAt;

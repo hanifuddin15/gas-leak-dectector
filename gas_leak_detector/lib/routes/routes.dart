@@ -10,7 +10,7 @@ class AppPages{
 GetPage(name: navbar, page: ( )=>  BottomNavigationBarView()),
 GetPage(name: home, page: ( )=> const GasLeakDetectorHomeScreen()),
 GetPage(name: profile, page: ( )=> const MyProfileScreen()),
-GetPage(name: settings, page: ( )=> const Settings()),
+GetPage(name: settings, page: ( )=>  Settings()),
     
   ];
 

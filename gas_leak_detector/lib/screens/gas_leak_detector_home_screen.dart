@@ -79,7 +79,7 @@ class _GasLeakDetectorHomeScreenState extends State<GasLeakDetectorHomeScreen> {
                                         padding: EdgeInsets.all(cardPadding),
                                         child:  CustomCardHome(
                                            onPressed: (){
-                                            Get.offAll(RegisteredDeviceList());
+                                            Get.offAll(UserDevicesScreen());
                                           },
                                           iconPath: 'images/list_icon.png',
                                           title: 'Registered Device List',

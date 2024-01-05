@@ -1,5 +1,5 @@
 class Urls {
-  static const baseUrl = "https://gasleak.mrshuvo.xyz/api/";
+  static const baseUrl = "http://criddam.com/gasleak.criddam.com/api/";             //https://gasleak.mrshuvo.xyz/api/
   static const login = "user_login";
   static const signup = "user_registration";
   static const googlelogin = "LoginWithThirdPartyApi";
@@ -10,6 +10,7 @@ class Urls {
  static const  getDeviceSensorData = "get-sensor-data";
  static const getDeviceStatusData = "get-status-data";
  //static const sendDeviceStatusData = "send-status-data";
+ static const getUserDevices = "user-devices";
  static const profieShow = "userinfo";
  static const profile_update = "userinfoupdate";
 }
